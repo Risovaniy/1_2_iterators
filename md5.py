@@ -1,4 +1,4 @@
-# import hashlib
+import hashlib
 
 
 # class Countries:
@@ -28,7 +28,7 @@ path_to_file = 'links.json'
 def gen(path):
     with open(path) as file:
         for line in file:
-            yield line.upper()
+            yield hashlib.md5(line.upper().encode()).hexdigest()
 
 
 for item in gen(path_to_file):
